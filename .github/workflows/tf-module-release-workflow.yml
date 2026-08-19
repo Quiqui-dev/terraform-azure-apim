@@ -8,7 +8,7 @@ on:
 jobs:
   semver-tag:
     name: Apply semantic version tags
-    uses: Quiqui-dev/central-platform-automation/.github/workflows/tf-module-release-workflow.yml@2
+    uses: Quiqui-dev/central-platform-automation/.github/workflows/tf-module-release-workflow.yml@v2
     permissions:
       contents: write
     secrets: inherit
