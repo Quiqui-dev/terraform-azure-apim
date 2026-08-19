@@ -1,0 +1,14 @@
+name: Tag releases to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semver-tag:
+    name: Apply semantic version tags
+    uses: Quiqui-dev//.github/workflows/tf-module-release-workflow.yml@main
+    permissions:
+      contents: write
+    secrets: inherit

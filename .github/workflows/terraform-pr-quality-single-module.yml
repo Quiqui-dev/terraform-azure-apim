@@ -1,0 +1,24 @@
+# Auto-generated stub - replace with content from __CENTRAL_USER__/__CENTRAL_REPO__
+name: TF PR Quality Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  quality-gate:
+    uses: Quiqui-dev/central-platform-automation/.github/workflows/terraform-pr-quality-single-module.yml@v2
+    with:
+      terraform-path: .
+      base-sha: ${{ github.event.pull_request.base.sha }}
+      head-sha: ${{ github.event.pull_request.head.sha }}
+      pr-number: ${{ github.event.pull_request.number }}
+      run-tfsec: true
+      run-only-if-tf-changed: true
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
